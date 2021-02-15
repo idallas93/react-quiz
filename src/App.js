@@ -1,6 +1,7 @@
-import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import Home from './pages/Home';
+
 
 function App() {
   return (
@@ -8,9 +9,8 @@ function App() {
     <div className="App">
      <div>
        <Switch>
-         <Route path="/">
-          {/* add home components */}
-         </Route>
+         <Home></Home>
+         <Route exact path="/" component={Home} />
        </Switch>
      </div>
     </div>
