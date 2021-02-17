@@ -3,7 +3,7 @@ import "./style.css";
 function Footer(){
 
     return(
-<div class="footer">
+<div className="footer">
  <p>
      Quiz Game @Dallas.Isaac1@gmail.com
  </p>
