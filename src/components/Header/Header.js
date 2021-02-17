@@ -1,4 +1,3 @@
-import '../../pages/Home/node_modules/bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";

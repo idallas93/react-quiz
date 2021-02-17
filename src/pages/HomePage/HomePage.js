@@ -2,9 +2,12 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from "react";
 import "./style.css";
 import Button from "react-bootstrap/Button";
-import Header from "../../components/Header"
+import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer"
 
-function Home(){
+
+
+function HomePage(){
 
 return (
 <container>
@@ -17,9 +20,11 @@ return (
   <p>
     <Button variant="primary">Learn more</Button>
   </p>
+  <Footer/>
 </container>
+
 );
 
 }
 
-export default Home;
+export default HomePage;
