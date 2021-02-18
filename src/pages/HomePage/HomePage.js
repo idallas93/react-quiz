@@ -7,13 +7,14 @@ import Footer from "../../components/Footer/Footer";
 
 function HomePage() {
   const API_URL =
-    "https://opentdb.com/api.php?amount=10&category=14&difficulty=medium&type=multiple";
+    "https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple";
   const [questions, setQuestions] = useState([]);
 
   useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
+        console.log(data.results)
         setQuestions(data.results);
       });
   }, []);
@@ -27,7 +28,7 @@ function HomePage() {
       </div>
       <div className="flex flex-wrap mt-4 justify-around">
         <button className="bg-white w-2/5 p-4 text-purple-800 font-semibold rounded shadow mb-4">
-          {questions[0].correct_answer[0]}
+          {questions[0].correct_answer}
         </button>
         <button className="bg-white w-2/5  p-4 text-purple-800 font-semibold rounded shadow mb-4">
           {questions[0].incorrect_answers[0]}
@@ -41,7 +42,7 @@ function HomePage() {
       </div>
     </div>
   )  : (
-    <h2>We are loading</h2>
+    <h2 className='text-2xl text-white font-bold'>We are loading</h2>
   );
 }
 
