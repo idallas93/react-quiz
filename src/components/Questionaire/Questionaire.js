@@ -20,13 +20,11 @@ const Questionaire = ({
       <div className="flex flex-wrap mt-4 justify-around">
         {shuffledAnswer.map((answer) => (
           <button
-            className={`${correct_answer 
-              === answer ? 'bg-purple-300' : 'bg-white'} p-4 
-              text-purple-800 font-semibold rounded shadow`}
+            className='bg-white p-4 
+              text-purple-800 font-semibold rounded shadow'
             onClick={() => handleAnswer(answer)}
-          >
-            {answer}
-          </button>
+            dangerouslySetInnerHTML={{ __html: answer }}
+          />
         ))}
       </div>
     </div>

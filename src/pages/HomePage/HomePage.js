@@ -8,7 +8,8 @@ function HomePage() {
     "https://opentdb.com/api.php?amount=10&category=23&difficulty=medium&type=multiple";
   const [questions, setQuestions] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [score, setScore] = useState(0)
+  const [score, setScore] = useState(0);
+  const [gameEnded, setGameEnded] = useState(false);
  
   useEffect(() => {
     fetch(API_URL)
@@ -22,17 +23,24 @@ function HomePage() {
 
   // console.log("test log", questions[0].questions)
   const handleAnswer = (answer) => {
-    setCurrentIndex(currentIndex + 1)
+    const newIndex = currentIndex + 1
+    setCurrentIndex(newIndex);
 
     if(answer === questions[currentIndex].correct_answer) {
       // increase the score 
       setScore(score + 1)
     }
+
+    if(newIndex >= questions.length){
+      setGameEnded(true);
+    };
     // check for the answer
     // show another question
     //change score if correct 
   }
-  return questions.length > 0 ? (
+  return gameEnded ? (
+    <h1 className='text-3xl text-purple font-bold'> Your score was {score} </h1>
+  ) : questions.length > 0 ? (
     <div className="container">
      <Questionaire data={questions[currentIndex]} handleAnswer={handleAnswer}/>
     </div>
