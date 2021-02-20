@@ -16,9 +16,16 @@ function HomePage() {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => {
-        setQuestions(data.results);
-        console.log('index', data)
-      });
+        const questions = data.results.map((question) =>
+         ({
+          ...question,
+          answers: [
+            question.correct_answer,
+            ...question.incorrect_answers
+          ].sort(() => Math.random() -0.5),
+      }));
+      setQuestions(questions);
+    });
   }, []);
 
   // console.log("test log", questions[0].questions)
@@ -52,7 +59,7 @@ function HomePage() {
   return gameEnded ? (
     <h1 className='text-3xl text-purple font-bold'> Your score was {score} </h1>
   ) : questions.length > 0 ? (
-    <div className="container">
+    <div className="container flex justify-center items-center h-screen">
      <Questionaire data={questions[currentIndex]} showAnswers={showAnswers} handleNextQuestion ={handleNextQuestion} handleAnswer={handleAnswer}/>
     </div>
   )  : (

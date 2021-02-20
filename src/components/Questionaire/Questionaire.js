@@ -4,28 +4,27 @@ const Questionaire = ({
   showAnswers,
   handleAnswer,
   handleNextQuestion,
-  data: { question, correct_answer, incorrect_answers },
+  data: { question, correct_answer, answers },
 }) => {
-  const shuffledAnswer = [correct_answer, ...incorrect_answers].sort(
-    () => Math.random() - 0.5
-  );
+  
   return (
     <div className='flex flex-col'>
-      <div className={`bg-white text-purple-800 p-10 rounded-lg shadow-md`}>
+      <div className={`bg-white text-purple-500 p-10 rounded-lg shadow-md`}>
         <h2
           className="text-2xl"
           dangerouslySetInnerHTML={{ __html: question }}
         />
       </div>
-      <div className="grid grid-cols2 gap-6 mt-6">
-        {shuffledAnswer.map((answer) => {
+      <div className="grid grid-cols-2 gap-6 mt-6">
+        {answers.map((answer, idx) => {
           const textColor = showAnswers ? 
           answer === correct_answer 
-          ? 'text-green-500'
-           : 'text-red-500' 
+          ? 'text-green-300'
+           : 'text-red-300' 
            : 'text-purple-500';
           return (
           <button
+          key={idx}
             className={`bg-white ${textColor} p-4 
               font-semibold rounded shadow`}
             onClick={() => handleAnswer
