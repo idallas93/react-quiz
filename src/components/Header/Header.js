@@ -7,19 +7,19 @@ import Button from "react-bootstrap/Button";
 
 function Header (){
   return (
-<Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-  <Navbar.Brand href="#home">Quiz Game</Navbar.Brand>
+<Navbar collapseOnSelect expand="lg" bg="transparent" variant="dark">
+  <Navbar.Brand href="#home" className="font-bold">Quiz Game</Navbar.Brand>
   <Navbar.Toggle aria-controls="responsive-navbar-nav" />
   <Navbar.Collapse id="responsive-navbar-nav">
     <Nav className="mr-auto">
     </Nav>
     <Nav>
-      <Button> <Nav.Link href="#deets">Log In</Nav.Link></Button>
-      <Button>
+      <button className="bg-purple-500  hover:bg-purple-800 text-white front-bold py-1 px-4 rounded shadow m-1"> <Nav.Link href="#deets">Log In</Nav.Link></button>
+      <button className="bg-purple-500  hover:bg-purple-800 text-white front-bold py-1 px-4 rounded shadow m-1">
       <Nav.Link eventKey={2} href="#memes">
         High Scores
       </Nav.Link>
-      </Button>
+      </button>
     </Nav>
   </Navbar.Collapse>
 </Navbar>
